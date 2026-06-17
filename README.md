@@ -2,7 +2,7 @@
 
 A **minimal**, **generic** N-dimensional vector library for **Ada SPARK** with mathematical operations and formal proofs for numerical stability.
 
--- Version: 0.01
+-- Version: 0.02
 
 ## Purpose
 
@@ -59,9 +59,10 @@ end Example;
 
 ## Files
 
-- `src/vectors.ads` - Specification with contracts (Version: 0.01)
-- `src/vectors.adb` - Implementation with proofs (Version: 0.01)
-- `vectors.gpr` - GNAT Project file for gnatprove (Version: 0.01)
+- `src/vectors.ads` - Specification with contracts (Version: 0.02)
+- `src/vectors.adb` - Main package body (Version: 0.02)
+- `src/vectors-n_dimensional_vectors.adb` - N-Dimensional vectors implementation (Version: 0.02)
+- `vectors.gpr` - GNAT Project file for gnatprove (Version: 0.02)
 
 ## Verification
 
@@ -83,3 +84,4 @@ All operations are proven to be:
 2. **Type safety**: Each dimension has its own type
 3. **Numerical stability**: Only uses operations that are always defined
 4. **Formal proofs**: SPARK verifies all contracts automatically
+5. **Structure**: Uses child package `Vectors.N_Dimensional_Vectors` for the generic implementation

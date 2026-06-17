@@ -1,7 +1,7 @@
 --  SPARK Vector Library - Generic N-dimensional vectors with mathematical operations
 --  Purpose: Foundation for physics, chemistry, and graphics applications
 --  Demonstrates safe mathematical type implementation in SPARK
---  Version: 0.01
+--  Version: 0.02
 
 with Ada.Numerics.Generic_Elementary_Functions;
 
@@ -9,7 +9,7 @@ package Vectors with
   SPARK_Mode => On,
   Abstract_State => (State => (Empty)) -- No global state
 is
-   -- Version 0.01
+   -- Version 0.02
    
    type Real is digits <*> range <*>;
    
