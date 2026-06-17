@@ -1,12 +1,12 @@
 --  SPARK Vector Library - Generic N-dimensional vectors with mathematical operations
 --  Purpose: Foundation for physics, chemistry, and graphics applications
 --  Demonstrates safe mathematical type implementation in SPARK
---  Version: 0.05
+--  Version: 0.06
 
 package Vectors with
   SPARK_Mode => On
 is
-   -- Version 0.05
+   -- Version 0.06
    
    type Real is digits 15 range -1.0E300 .. 1.0E300;
    
@@ -37,10 +37,9 @@ is
       function Cross_Product (Left, Right : Vector) return Vector
         with
           Pre => Dimension = 3,
-          Post => (for all I in 1 .. 3 =>
-                     (I = 1 and then Cross_Product'Result(I) = Left(2) * Right(3) - Left(3) * Right(2)) or
-                     (I = 2 and then Cross_Product'Result(I) = Left(3) * Right(1) - Left(1) * Right(3)) or
-                     (I = 3 and then Cross_Product'Result(I) = Left(1) * Right(2) - Left(2) * Right(1)));
+          Post => Cross_Product'Result(1) = Left(2) * Right(3) - Left(3) * Right(2) and
+                  Cross_Product'Result(2) = Left(3) * Right(1) - Left(1) * Right(3) and
+                  Cross_Product'Result(3) = Left(1) * Right(2) - Left(2) * Right(1);
       
    end N_Dimensional_Vectors;
 

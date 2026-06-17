@@ -1,5 +1,5 @@
 --  SPARK Vector Library - GNAT Project File
---  Version: 0.05
+--  Version: 0.06
 
 project Vectors is
    for Source_Dirs use ("src");
