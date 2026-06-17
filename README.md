@@ -2,6 +2,8 @@
 
 A **minimal**, **generic** N-dimensional vector library for **Ada SPARK** with mathematical operations and formal proofs for numerical stability.
 
+-- Version: 0.01
+
 ## Purpose
 
 Foundation for physics, chemistry, and graphics applications. Demonstrates how to safely implement mathematical types in SPARK with:
@@ -57,16 +59,17 @@ end Example;
 
 ## Files
 
-- `src/vectors.ads` - Specification with contracts
-- `src/vectors.adb` - Implementation with proofs
+- `src/vectors.ads` - Specification with contracts (Version: 0.01)
+- `src/vectors.adb` - Implementation with proofs (Version: 0.01)
+- `vectors.gpr` - GNAT Project file for gnatprove (Version: 0.01)
 
 ## Verification
 
 To verify with SPARK:
 
 ```bash
-# Using GNAT Studio or command line
-spark_cli analyze src/vectors.ads src/vectors.adb
+# Using gnatprove with the project file
+gnatprove -P vectors.gpr --level=4 --timeout=0 --no-inlining --report=all --verbose
 ```
 
 All operations are proven to be:

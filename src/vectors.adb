@@ -1,9 +1,16 @@
 --  SPARK Vector Library - Implementation
 --  Generic N-dimensional vectors with mathematical operations
+--  Version: 0.01
+
+with Ada.Numerics.Generic_Elementary_Functions;
 
 package body Vectors with
   SPARK_Mode => On
 is
+   -- Version 0.01
+   
+   -- Instantiate elementary functions for Real type
+   package Real_Functions is new Ada.Numerics.Generic_Elementary_Functions (Real);
    
    -- Generic N-dimensional vector operations
    generic
@@ -51,7 +58,7 @@ is
          
          -- Square root is always defined for non-negative numbers
          -- Sum_Squares is always >= 0.0 due to squaring
-         return Real'Sqrt(Sum_Squares);
+         return Real_Functions.Sqrt(Sum_Squares);
       end Norm;
       
       -- Cross product for 3D vectors only
