@@ -1,0 +1,16 @@
+# Ada SPARK
+*.ali
+*.o
+*.exe
+*~ 
+
+# IDE
+.idea/
+.vscode/
+
+# Build artifacts
+obj/
+build/
+
+# SPARK
+.spark/
