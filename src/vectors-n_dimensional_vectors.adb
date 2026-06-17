@@ -1,12 +1,12 @@
 --  SPARK Vector Library - N-Dimensional Vectors Implementation
---  Version: 0.03
+--  Version: 0.04
 
 with Ada.Numerics.Generic_Elementary_Functions;
 
 package body Vectors.N_Dimensional_Vectors with
   SPARK_Mode => On
 is
-   -- Version 0.03
+   -- Version 0.04
    
    -- Instantiate elementary functions for Real type
    package Real_Functions is new Ada.Numerics.Generic_Elementary_Functions (Real);
@@ -17,6 +17,7 @@ is
    begin
       for I in 1 .. Dimension loop
          Result(I) := Left(I) + Right(I);
+         pragma Loop_Invariant (for all J in 1 .. I-1 => Result(J) = Left(J) + Right(J));
       end loop;
       return Result;
    end "+";
@@ -27,6 +28,7 @@ is
    begin
       for I in 1 .. Dimension loop
          Result(I) := Scalar * Vec(I);
+         pragma Loop_Invariant (for all J in 1 .. I-1 => Result(J) = Scalar * Vec(J));
       end loop;
       return Result;
    end "*";

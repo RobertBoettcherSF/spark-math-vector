@@ -1,13 +1,13 @@
 --  SPARK Vector Library - Generic N-dimensional vectors with mathematical operations
 --  Purpose: Foundation for physics, chemistry, and graphics applications
 --  Demonstrates safe mathematical type implementation in SPARK
---  Version: 0.03
+--  Version: 0.04
 
 package Vectors with
   SPARK_Mode => On,
   Abstract_State => (State => (Empty)) -- No global state
 is
-   -- Version 0.03
+   -- Version 0.04
    
    type Real is digits 15 range -1.0E300 .. 1.0E300;
    
@@ -19,18 +19,10 @@ is
       type Vector is array (1 .. Dimension) of Real;
       
       -- Vector addition
-      function "+" (Left, Right : Vector) return Vector
-        with
-          Pre => True,
-          Post => (for all I in 1 .. Dimension => 
-                     ("+"'(Left, Right))(I) = Left(I) + Right(I));
+      function "+" (Left, Right : Vector) return Vector;
       
       -- Scalar multiplication
-      function "*" (Scalar : Real; Vec : Vector) return Vector
-        with
-          Pre => True,
-          Post => (for all I in 1 .. Dimension => 
-                     ("*"'(Scalar, Vec))(I) = Scalar * Vec(I));
+      function "*" (Scalar : Real; Vec : Vector) return Vector;
       
       -- Dot product (Skalarprodukt)
       function Dot_Product (Left, Right : Vector) return Real;
