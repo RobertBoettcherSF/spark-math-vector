@@ -1,12 +1,12 @@
 --  SPARK Vector Library - N-Dimensional Vectors Implementation
---  Version: 0.02
+--  Version: 0.03
 
 with Ada.Numerics.Generic_Elementary_Functions;
 
 package body Vectors.N_Dimensional_Vectors with
   SPARK_Mode => On
 is
-   -- Version 0.02
+   -- Version 0.03
    
    -- Instantiate elementary functions for Real type
    package Real_Functions is new Ada.Numerics.Generic_Elementary_Functions (Real);

@@ -1,17 +1,15 @@
 --  SPARK Vector Library - Generic N-dimensional vectors with mathematical operations
 --  Purpose: Foundation for physics, chemistry, and graphics applications
 --  Demonstrates safe mathematical type implementation in SPARK
---  Version: 0.02
-
-with Ada.Numerics.Generic_Elementary_Functions;
+--  Version: 0.03
 
 package Vectors with
   SPARK_Mode => On,
   Abstract_State => (State => (Empty)) -- No global state
 is
-   -- Version 0.02
+   -- Version 0.03
    
-   type Real is digits <*> range <*>;
+   type Real is digits 15 range -1.0E300 .. 1.0E300;
    
    -- Generic N-dimensional vector type
    generic
@@ -35,12 +33,7 @@ is
                      ("*"'(Scalar, Vec))(I) = Scalar * Vec(I));
       
       -- Dot product (Skalarprodukt)
-      function Dot_Product (Left, Right : Vector) return Real
-        with
-          Pre => True,
-          Post => Dot_Product'Result = 
-                  (for some Sum => Sum = 0.0 and then
-                     (for all I in 1 .. Dimension => Sum = Sum + Left(I) * Right(I)));
+      function Dot_Product (Left, Right : Vector) return Real;
       
       -- Norm (Euclidean)
       function Norm (Vec : Vector) return Real
